@@ -78,4 +78,59 @@ export const Mail = (p: IconProps) => (
   </svg>
 );
 
-export const socialIcons = { github: Github, linkedin: Linkedin, mail: Mail };
+export const MapPin = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z" />
+    <circle cx="12" cy="9.5" r="2.5" />
+  </svg>
+);
+
+export const Send = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M21.5 2.5 10.5 13.5M21.5 2.5l-7 19-4-8-8-4 19-7Z" />
+  </svg>
+);
+
+export const Download = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="M12 3v12M7 10l5 5 5-5M4 20h16" />
+  </svg>
+);
+
+export const Check = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <path d="m5 12.5 4.5 4.5L19 7.5" />
+  </svg>
+);
+
+export const Copy = (p: IconProps) => (
+  <svg {...base} {...p}>
+    <rect x="8.5" y="8.5" width="12" height="12" rx="2.5" />
+    <path d="M15.5 8.5V6a2.5 2.5 0 0 0-2.5-2.5H6A2.5 2.5 0 0 0 3.5 6v7A2.5 2.5 0 0 0 6 15.5h2.5" />
+  </svg>
+);
+
+/** Text monogram badge, used for profiles without a simple outline icon. */
+const Monogram = ({ text, ...p }: IconProps & { text: string }) => (
+  <svg {...base} {...p}>
+    <text
+      x="12"
+      y="16.2"
+      textAnchor="middle"
+      fontSize="12"
+      fontWeight="700"
+      letterSpacing="0.3"
+      fill="currentColor"
+      stroke="none"
+      className="font-mono"
+    >
+      {text}
+    </text>
+  </svg>
+);
+
+export const LeetCode = (p: IconProps) => <Monogram text="LC" {...p} />;
+
+export const CodeChef = (p: IconProps) => <Monogram text="CC" {...p} />;
+
+export const socialIcons = { github: Github, linkedin: Linkedin, leetcode: LeetCode, codechef: CodeChef, mail: Mail };

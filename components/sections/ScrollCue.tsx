@@ -3,7 +3,7 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 
 /** Animated "scroll down" cue pinned to the bottom of the hero; fades out as you scroll. */
-export function ScrollCue({ href = "#skills" }: { href?: string }) {
+export function ScrollCue({ href = "#philosophy" }: { href?: string }) {
   const reduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 160], [1, 0]);
@@ -17,7 +17,7 @@ export function ScrollCue({ href = "#skills" }: { href?: string }) {
     >
       <motion.a
         href={href}
-        aria-label="Scroll to skills"
+        aria-label="Scroll down"
         style={{ opacity }}
         whileHover="hover"
         className="group flex flex-col items-center gap-2 rounded-full p-2 text-white/50 transition-colors hover:text-white"

@@ -11,8 +11,11 @@ export const profile = {
 };
 
 export const navLinks = [
+  { label: "Home", href: "#top" },
+  { label: "Philosophy", href: "#philosophy" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
+  { label: "Wins", href: "#recognition" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -157,10 +160,52 @@ export const projects: Project[] = [
   },
 ];
 
+export type Win = {
+  tag: string;
+  title: string;
+  description: string;
+};
+
+// TODO(Lokesh): PLACEHOLDER — these wins and certifications are copied from
+// revanth1404.vercel.app as a layout sample. Replace them with your own before publishing.
+export const recognition = {
+  eyebrow: "Recognition",
+  title: "Wins & Credentials",
+  intro: "Hackathon stages, national evaluations and the certifications along the way.",
+  wins: [
+    {
+      tag: "SIH 2025",
+      title: "National Evaluation Presenter",
+      description: "Smart India Hackathon — selected via internal hackathon to present nationwide.",
+    },
+    { tag: "ACM", title: "Top 5 — Webathon 4.0", description: "Led the CampusGig team to a top-five finish." },
+    { tag: "ACM", title: "Runner-Up — Replicon", description: "Frontend development challenge." },
+    {
+      tag: "KLH",
+      title: "Blockchain Hackathon",
+      description: "Built PitchForge AI with Algorand x402 payment-gated export.",
+    },
+    { tag: "Finalist", title: "VJStartups Ideathon", description: "Pitched a fintech idea to the finals." },
+    { tag: "Finalist", title: "Convergence 2k25R", description: "Turing Hut coding contest." },
+  ] satisfies Win[],
+  certifications: ["NPTEL Elite — Java", "Prompt Engineering"],
+};
+
+export const contact = {
+  eyebrow: "Get in touch",
+  title: "Let's Build Something Extraordinary",
+  intro: "Have an internship, a project or an idea in mind? I'd love to hear about it.",
+  email: "lokeshvardhanb@gmail.com",
+  location: "Hyderabad, Telangana, India",
+  availability: "Open to internships",
+};
+
 export const socials = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/lokesh-vardhan", icon: "linkedin" },
   { label: "GitHub", href: "https://github.com/bandarilokesh", icon: "github" },
-  { label: "Email", href: "mailto:lokeshvardhanb@gmail.com", icon: "mail" },
+  { label: "LeetCode", href: "https://leetcode.com/u/bandarilokesh/", icon: "leetcode" },
+  { label: "CodeChef", href: "https://www.codechef.com/users/lokeshvardhanb", icon: "codechef" },
+  { label: "Email", href: `mailto:${contact.email}`, icon: "mail" },
 ] as const;
 
 export const accentHex: Record<Accent, string> = {

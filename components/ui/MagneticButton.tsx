@@ -7,7 +7,7 @@ import {
   useSpring,
   useTransform,
 } from "framer-motion";
-import { useRef, type PointerEvent, type ReactNode } from "react";
+import { useRef, type MouseEvent, type PointerEvent, type ReactNode } from "react";
 
 type MagneticButtonProps = {
   href: string;
@@ -17,6 +17,9 @@ type MagneticButtonProps = {
   strength?: number;
   className?: string;
   external?: boolean;
+  /** Download the linked file instead of navigating to it. */
+  download?: boolean;
+  onClick?: (e: MouseEvent<HTMLAnchorElement>) => void;
 };
 
 const variants = {
@@ -38,6 +41,8 @@ export function MagneticButton({
   strength = 0.35,
   className = "",
   external = false,
+  download = false,
+  onClick,
 }: MagneticButtonProps) {
   const fieldRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
@@ -72,6 +77,8 @@ export function MagneticButton({
       <motion.a
         href={href}
         {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        {...(download ? { download: true } : {})}
+        onClick={onClick}
         style={{ x: sx, y: sy }}
         whileTap={{ scale: 0.95 }}
         className={`relative inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm tracking-wide transition-[box-shadow,border-color,color] duration-300 ${variants[variant]} ${className}`}
